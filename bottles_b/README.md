@@ -33,7 +33,7 @@ before you proceed.
 ##Your tasks are to:
 ### Dry out the strings:
 
-  1. First, watch http://bit.ly/ctp_spa1 (or grab a red USB drive and look in /spaconf_2014 )
+  1. First, watch http://bit.ly/ctp_spa1
   1. Dry out the strings in ```lib/bottles.rb``` using the technique demostrated in
   the video.  It's important for the experiment that you follow this technique
   exactly; we'll wander around and help keep you on track.
@@ -49,7 +49,7 @@ before you proceed.
       1. Use the result
       1. Clean up unused code
 
-Your code should look like https://github.com/skmetz/spaconf_2014/blob/dry/bottles/lib/bottles.rb
+Your code should look like https://github.com/dwaller/skmetz_bottles/blob/dry/bottles_b/lib/bottles.rb
 when you're done.  You may have chosen different method names, but the shape of
 your code should be very, very similar.
 
@@ -58,7 +58,7 @@ your code should be very, very similar.
   methods that contain ```if``` statements that depend on bottle_number.
   (We'll demo this after the break, so don't worry if you don't get to it.)
 
-Your code should look like https://github.com/skmetz/spaconf_2014/blob/bottle_number/bottles/lib/bottles.rb
+Your code should look like https://github.com/dwaller/skmetz_bottles/blob/bottle_number/bottles_b/lib/bottles.rb
 when you're done.
 
 ### Turn the conditionals into Objects

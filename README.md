@@ -15,13 +15,13 @@ You will need:
 Clone this repository:
 
 ```bash
-$ git clone https://github.com/skmetz/spaconf_2014
+$ git clone https://github.com/dwaller/skmetz_bottles
 ```
 
 Change directories into the project:
 
 ```bash
-$ cd spaconf_2014
+$ cd skmetz_bottles
 ```
 
 Install the dependencies:
