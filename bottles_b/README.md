@@ -68,10 +68,10 @@ We'll demo the technique and then let you write the code.
 Change the code to return '1 six-pack' instead of '6 bottles' when 6 bottles
 remain.
 <pre>
-    7 bottles of beer on the wall, 7 bottles of beer,
-    take one down and pass it around, 1 six-pack of beer on the wall.
-    1 six-pack of beer on the wall, 1 six-pack of beer,
-    take one down and pass it around, 5 bottles of beer on the wall.
+    7 bottles of beer on the wall, 7 bottles of beer.
+    Take one down and pass it around, 1 six-pack of beer on the wall.
+    1 six-pack of beer on the wall, 1 six-pack of beer.
+    Take one down and pass it around, 5 bottles of beer on the wall.
 </pre>
   1. Now that your code is open/closed, add the '6-packs' feature.
 
