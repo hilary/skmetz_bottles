@@ -1,7 +1,9 @@
 class Bottles
 
-  def verses(*counts)
-    counts.reduce('') { |song, count| song + verse(count) + "\n" }.chomp("\n")
+  def verses(start, stop)
+    start.downto(stop).
+      inject('') { |song, count| song + verse(count) + "\n" }.
+      chomp("\n")
   end
 
   def verse(count)
