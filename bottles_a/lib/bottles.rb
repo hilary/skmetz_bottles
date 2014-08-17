@@ -2,23 +2,30 @@ class Bottles
 
   def verse(count)
     <<VERSE
-#{unit(count).capitalize} of beer on the wall, #{unit(count)} of beer.
-Take #{pronoun(count)} down and pass it around, #{unit(count - 1)} of beer on the wall.
+#{beer(count).capitalize}, #{beer(count, wall = false)}.
+#{get_beer(count)}, #{beer(count - 1)}.
 VERSE
   end
 
   private
 
-    def unit(count)
-      case count
-        when 1  then "#{count} bottle"
-        when 0  then "no more bottles"
+    def beer(count, wall = true)
+      bottle = case count
+        when  1  then "#{count} bottle"
+        when  0  then "no more bottles"
+        when -1  then "99 bottles"
         else        "#{count} bottles"
-      end
+      end + ' of beer'
+      bottle += ' on the wall' if wall
+      bottle
     end
 
-    def pronoun(count)
-      count == 1 ? 'it' : 'one'
+    def get_beer(count)
+      case count
+        when 1 then 'Take it down and pass it around'
+        when 0 then 'Go to the store and buy some more'
+        else        'Take one down and pass it around'
+      end
     end
 
 end
