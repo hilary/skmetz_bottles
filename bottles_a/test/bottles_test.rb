@@ -83,9 +83,9 @@ end
 
 class ExtendedBottlesTest < Minitest::Test
 
-  attr_reader :bottles
+  attr_reader :ext_bottles
   def setup
-    @bottles = ::ExtendedBottles.new
+    @ext_bottles = ::ExtendedBottles.new
   end
 
   def test_the_seventh_verse
@@ -93,7 +93,7 @@ class ExtendedBottlesTest < Minitest::Test
 7 bottles of beer on the wall, 7 bottles of beer.
 Take one down and pass it around, 1 six-pack of beer on the wall.
 VERSE
-    assert_equal expected, bottles.verse(7)
+    assert_equal expected, ext_bottles.verse(7)
   end
 
   def test_the_sixth_verse
@@ -101,9 +101,12 @@ VERSE
 1 six-pack of beer on the wall, 1 six-pack of beer.
 Take one down and pass it around, 5 bottles of beer on the wall.
 VERSE
-    assert_equal expected, bottles.verse(6)
+    assert_equal expected, ext_bottles.verse(6)
   end
 
+  def test_the_whole_song
+    assert_equal ext_bottles.verses(99, 0), ext_bottles.song
+  end
 end
 
 
