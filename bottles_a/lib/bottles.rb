@@ -11,23 +11,39 @@ class Bottles
   end
 
   def verse(count)
+    current = send("beer_#{count}".to_sym)
     <<VERSE
-#{beer(count).capitalize}, #{beer(count, wall = false)}.
-#{get_beer(count)}, #{beer(count - 1)}.
+#{current.capitalize} #{decorate_beer}, #{current} #{decorate_beer(false)}.
+#{get_beer(count)}, #{send("beer_#{count - 1}".to_sym)} #{decorate_beer}.
 VERSE
   end
 
   private
 
-    def beer(count, wall = true)
-      bottle = case count
-        when  1  then "#{count} bottle"
-        when  0  then "no more bottles"
-        when -1  then "99 bottles"
-        else        "#{count} bottles"
-      end + ' of beer'
-      bottle += ' on the wall' if wall
-      bottle
+    def beer_1
+      "1 bottle"
+    end
+
+    def beer_0
+      "no more bottles"
+    end
+
+    def beer_neg1
+      "99 bottles"
+    end
+
+    def method_missing(method_name, *args)
+      if neg_count = method_name.to_s.match(/^beer_-(\d+)$/)
+        send("beer_neg#{neg_count[1]}")
+      elsif count = method_name.to_s.match(/^beer_(\d+)/)
+        "#{count[1]} bottles"
+      else
+        super
+      end
+    end
+
+    def decorate_beer(wall = true)
+      'of beer' + (wall ? ' on the wall' : '')
     end
 
     def get_beer(count)
