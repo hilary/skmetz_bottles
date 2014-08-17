@@ -55,3 +55,11 @@ VERSE
     end
 
 end
+
+class ExtendedBottles < Bottles
+
+  def beer_6
+    "1 six-pack"
+  end
+
+end

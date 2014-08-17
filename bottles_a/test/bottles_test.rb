@@ -80,3 +80,30 @@ VERSES
     assert_equal bottles.verses(99, 0), bottles.song
   end
 end
+
+class ExtendedBottlesTest < Minitest::Test
+
+  attr_reader :bottles
+  def setup
+    @bottles = ::ExtendedBottles.new
+  end
+
+  def test_the_seventh_verse
+    expected = <<-VERSE
+7 bottles of beer on the wall, 7 bottles of beer.
+Take one down and pass it around, 1 six-pack of beer on the wall.
+VERSE
+    assert_equal expected, bottles.verse(7)
+  end
+
+  def test_the_sixth_verse
+    expected = <<-VERSE
+1 six-pack of beer on the wall, 1 six-pack of beer.
+Take one down and pass it around, 5 bottles of beer on the wall.
+VERSE
+    assert_equal expected, bottles.verse(6)
+  end
+
+end
+
+
