@@ -1,5 +1,9 @@
 class Bottles
 
+  def verses(*counts)
+    counts.reduce('') { |song, count| song + verse(count) + "\n" }.chomp("\n")
+  end
+
   def verse(count)
     <<VERSE
 #{beer(count).capitalize}, #{beer(count, wall = false)}.
