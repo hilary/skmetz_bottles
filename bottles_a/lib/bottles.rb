@@ -1,5 +1,9 @@
 class Bottles
 
+  def song
+    verses(99, 0)
+  end
+
   def verses(start, stop)
     start.downto(stop).
       inject('') { |song, count| song + verse(count) + "\n" }.

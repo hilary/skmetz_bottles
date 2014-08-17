@@ -77,7 +77,6 @@ VERSES
   end
 
   def test_the_whole_song
-    skip
     assert_equal bottles.verses(99, 0), bottles.song
   end
 end
