@@ -1,10 +1,17 @@
 class Bottles
 
   def verse(count)
+    
     <<VERSE
-#{count} bottles of beer on the wall, #{count} bottles of beer.
-Take one down and pass it around, #{count - 1} bottles of beer on the wall.
+#{unit(count)} of beer on the wall, #{unit(count)} of beer.
+Take one down and pass it around, #{unit(count - 1)} of beer on the wall.
 VERSE
   end
+
+  private
+
+    def unit(count)
+      count > 1 ? "#{count} bottles" : "#{count} bottle"
+    end
 
 end
