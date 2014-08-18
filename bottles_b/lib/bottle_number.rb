@@ -6,16 +6,20 @@ class BottleNumber
     @number = number
   end
 
+  def full_name
+    "#{name} #{container}"
+  end
+
   def name
     number == 0 ? 'no more' : number.to_s
   end
 
-  def next
-    number == 0 ? BottleNumber.new(99) : BottleNumber.new(number - 1)
-  end
-
   def container
     number == 1 ? 'bottle' : 'bottles'
+  end
+
+  def next
+    number == 0 ? BottleNumber.new(99) : BottleNumber.new(number - 1)
   end
 
   def pronoun

@@ -12,12 +12,11 @@ class Bottles
 
   def verse(number)
     current_bn = BottleNumber.new(number)
-    next_bn    = BottleNumber.new(number).next
 
-    "#{current_bn.name.capitalize} #{current_bn.container} of beer on the wall, " +
-      "#{current_bn.name} #{current_bn.container} of beer.\n" +
+    "#{current_bn.full_name.capitalize} of beer on the wall, " +
+      "#{current_bn.full_name} of beer.\n" +
       "#{current_bn.get_beer}, " + 
-      "#{next_bn.name} #{next_bn.container} of beer on the wall.\n"
+      "#{current_bn.next.full_name} of beer on the wall.\n"
   end
 
 end
