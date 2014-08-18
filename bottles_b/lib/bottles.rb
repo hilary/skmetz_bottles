@@ -11,12 +11,39 @@ class Bottles
   end
 
   def verse(number)
-    current_bn = BottleNumber.new(number)
+    bottle_number = number.to_bottle_number
 
-    "#{current_bn.full_name.capitalize} of beer on the wall, " +
-      "#{current_bn.full_name} of beer.\n" +
-      "#{current_bn.get_beer}, " + 
-      "#{current_bn.next.full_name} of beer on the wall.\n"
+    "#{bottle_number} of beer on the wall, ".capitalize +
+      "#{bottle_number} of beer.\n" +
+      "#{bottle_number.get_beer}, " + 
+      "#{bottle_number.next} of beer on the wall.\n"
   end
 
 end
+
+class Fixnum
+  def to_bottle_number
+    begin
+      Object.const_get("BottleNumber#{self}")
+    rescue NameError
+      BottleNumber
+    end.new(self) # as in BottleNumber.new(self)
+  end
+end
+
+class BottleNumber0 < BottleNumber
+
+  def name
+    'no more'
+  end
+
+  def next
+    99.to_bottle_number
+  end
+
+  def get_beer
+    "Go to the store and buy some more"
+  end
+
+end
+

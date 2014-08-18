@@ -6,12 +6,12 @@ class BottleNumber
     @number = number
   end
 
-  def full_name
+  def to_s
     "#{name} #{container}"
   end
 
   def name
-    number == 0 ? 'no more' : number.to_s
+    number.to_s
   end
 
   def container
@@ -19,7 +19,7 @@ class BottleNumber
   end
 
   def next
-    number == 0 ? BottleNumber.new(99) : BottleNumber.new(number - 1)
+    (number - 1).to_bottle_number
   end
 
   def pronoun
@@ -27,7 +27,7 @@ class BottleNumber
   end
 
   def get_beer
-    number == 0 ? "Go to the store and buy some more" : "Take #{pronoun} down and pass it around"
+    "Take #{pronoun} down and pass it around"
   end
 
 end
