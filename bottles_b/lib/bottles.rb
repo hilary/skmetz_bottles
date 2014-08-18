@@ -1,3 +1,5 @@
+require_relative 'bottle_number'
+
 class Bottles
 
   def song
@@ -9,39 +11,13 @@ class Bottles
   end
 
   def verse(number)
-    current_bn = number
-    next_bn    = next_bottle_number(number)
+    current_bn = BottleNumber.new(number)
+    next_bn    = BottleNumber.new(number).next
 
-    "#{name(current_bn).capitalize} #{container(current_bn)} of beer on the wall, " +
-      "#{name(current_bn)} #{container(current_bn)} of beer.\n" +
-      "#{get_beer(current_bn)}, " + 
-      "#{name(next_bn)} #{container(next_bn)} of beer on the wall.\n"
+    "#{current_bn.name.capitalize} #{current_bn.container} of beer on the wall, " +
+      "#{current_bn.name} #{current_bn.container} of beer.\n" +
+      "#{current_bn.get_beer}, " + 
+      "#{next_bn.name} #{next_bn.container} of beer on the wall.\n"
   end
-
-  private
-
-    def container(bottle_number)
-      (bottle_number == 1) ? "bottle" : "bottles"
-    end
-
-    def get_beer(bottle_number)
-      if bottle_number == 0
-        "Go to the store and buy some more"
-      else
-        "Take #{pronoun(bottle_number)} down and pass it around"
-      end
-    end
-
-    def pronoun(bottle_number)
-      bottle_number == 1 ? "it" : "one"
-    end
-
-    def name(bottle_number)
-      bottle_number == 0 ? 'no more' : bottle_number.to_s
-    end
-
-    def next_bottle_number(bottle_number)
-      bottle_number == 0 ? 99 : bottle_number - 1
-    end
 
 end

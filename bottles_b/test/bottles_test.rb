@@ -2,7 +2,7 @@ gem 'minitest', '~> 5.3'
 require 'minitest/autorun'
 require 'minitest/pride'
 require_relative '../lib/bottles'
-
+require_relative '../lib/bottle_number'
 
 class BottlesTest < Minitest::Test
 
@@ -80,3 +80,4 @@ VERSES
     assert_equal bottles.verses(99, 0), bottles.song
   end
 end
+
