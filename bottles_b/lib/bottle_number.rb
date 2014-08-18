@@ -15,7 +15,7 @@ class BottleNumber
   end
 
   def container
-    number == 1 ? 'bottle' : 'bottles'
+    'bottles'
   end
 
   def next
@@ -23,11 +23,49 @@ class BottleNumber
   end
 
   def pronoun
-    number == 1 ? 'it' : 'one'
+    'one'
   end
 
   def get_beer
     "Take #{pronoun} down and pass it around"
+  end
+
+end
+
+class Fixnum
+  def to_bottle_number
+    begin
+      Object.const_get("BottleNumber#{self}")
+    rescue NameError
+      BottleNumber
+    end.new(self) # as in BottleNumber.new(self)
+  end
+end
+
+class BottleNumber0 < BottleNumber
+
+  def name
+    'no more'
+  end
+
+  def next
+    99.to_bottle_number
+  end
+
+  def get_beer
+    "Go to the store and buy some more"
+  end
+
+end
+
+class BottleNumber1 < BottleNumber
+
+  def container
+    'bottle'
+  end
+
+  def pronoun
+    'it'
   end
 
 end
